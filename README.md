@@ -2,6 +2,8 @@
 
 A modern, responsive admin theme for XOOPS 2.5.12 with an enhanced dashboard, dark mode, customizer panel, module widget system, and configurable content tracking.
 
+[![Modern XOOPS Admin Theme](https://img.youtube.com/vi/JZKzAsmaj6g/0.jpg)](https://www.youtube.com/watch?v=JZKzAsmaj6g)
+
 ## Features
 
 ### Modern Design
