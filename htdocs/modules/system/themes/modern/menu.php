@@ -10,7 +10,7 @@
  */
 
 /*
- * Xoops Cpanel oxygen menu
+ * Xoops Cpanel modern menu
  *
  * @copyright   (c) 2000-2016 XOOPS Project (www.xoops.org)
  * @license     GNU GPL 2.0 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -45,9 +45,13 @@ foreach ($dirlist as $file) {
     $versionFile = $admin_dir . '/' . $file . '/xoops_version.php';
     $realVersionPath = realpath($versionFile);
     if ($realVersionPath && $realAdminDir && strpos($realVersionPath, $realAdminDir . DIRECTORY_SEPARATOR) === 0) {
-        include $realVersionPath;
-        if (isset($modversion['hasAdmin']) && $modversion['hasAdmin']) {
-            if (xoops_getModuleOption('active_' . $file, 'system')) {
+        include_once $realVersionPath;
+        if (isset($modversion['hasAdmin'])) {
+            $moduleHandler = xoops_getHandler('module');
+            $configHandler = xoops_getHandler('config');
+            $module = $moduleHandler->getByDirname('system');
+            $configs = $configHandler->getConfigsByCat(0, $module->getVar('mid'));
+            if ($configs['active_' . $file]) {
                 $category = isset($modversion['category']) ? (int)$modversion['category'] : 0;
                 if ($all_ok || in_array($category, $ok_syscats, true)) {
                     $adminmenu[$index]['title'] = trim((string) $modversion['name']);
