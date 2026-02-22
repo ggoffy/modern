@@ -343,3 +343,42 @@ body.dark-mode #buttontop_mod td a:hover {
     background-color: rgba(59, 130, 246, 0.15) !important;
 }
 
+/* ========================================
+   10. Customize breadcrumbs
+   ======================================== */
+
+#xo-breadcrumb,
+#xo-breadcrumb li a {
+    background-image: none !important;
+    padding: 0 !important;
+}
+#xo-breadcrumb {
+    height: 40px !important;
+    margin-bottom: 20px !important;
+}
+#xo-breadcrumb li {
+    padding: 0 !important;
+}
+#xo-breadcrumb li a.tooltip {
+    height: 30px !important;
+}
+
+#xo-breadcrumb li a::after {
+    content: " >";
+    margin: 0 5px;
+}
+#xo-breadcrumb .home {
+    margin: 0 0 0 10px !important;
+    padding-left: 15px;
+}
+#xo-breadcrumb .xo-help a::after {
+    content: " ";
+    margin: 0 5px;
+}
+#xo-breadcrumb .xo-help img {
+    padding: 0 !important;
+    margin-left: 10px !important;
+    margin-top: 4px;
+}
+
+

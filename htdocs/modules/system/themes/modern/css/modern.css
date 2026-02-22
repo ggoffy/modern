@@ -1158,7 +1158,7 @@ body.dark-mode .nav-item:hover .nav-icon-img {
 /* Hide the icon grid squares */
 .rmmenuicon,
 #xo-modadmin-index .rmmenuicon {
-    display: none !important;
+    /* display: none !important; */
 }
 
 /* Module admin toolbar area */
