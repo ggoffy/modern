@@ -79,17 +79,18 @@ class XoopsGuiModern extends XoopsSystemGui
         $tpl->assign('theme_url', XOOPS_ADMINTHEME_URL . '/modern');
 
         // Ensure xoops_dirname is set for template conditionals
+        $showDashboard = true;
         if ($xoopsModule) {
             $tpl->assign('xoops_dirname', $xoopsModule->getVar('dirname'));
+            $showDashboard = false; //do not show dashboard if module is selected
         } else {
             $tpl->assign('xoops_dirname', 'system');
         }
+        $tpl->assign('showDashboard', $showDashboard);
 
         // Get user preference for dark mode
-//        $darkMode = filter_input(INPUT_COOKIE, 'xoops_dark_mode', FILTER_SANITIZE_STRING) ?: '0';
         $darkMode = filter_input(INPUT_COOKIE, 'xoops_dark_mode') ?? '0';
-        $darkMode = htmlspecialchars($darkMode, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $tpl->assign('dark_mode', $darkMode);
+        $tpl->assign('dark_mode', (string)$darkMode);
 
         // System information
         $this->getSystemInfo($tpl);
