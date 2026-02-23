@@ -343,6 +343,9 @@ body.dark-mode #buttontop_mod td a:hover {
     background-color: rgba(59, 130, 246, 0.15) !important;
 }
 
+
+
+/* changes by goffy */
 /* ========================================
    10. Customize breadcrumbs
    ======================================== */
@@ -381,4 +384,32 @@ body.dark-mode #buttontop_mod td a:hover {
     margin-top: 4px;
 }
 
+/* tables on admin area */
+table.outer thead th {
+    background: linear-gradient(to bottom, var(--primary), var(--border-light)) !important;
+    border-bottom: 2px solid var(--primary) !important;
+}
 
+table.outer tbody tr td:first-child {
+    border-left: 4px solid transparent !important;
+}
+
+table.outer tbody tr:hover {
+    transition: background-color 0.2s ease !important;
+    background-color: color-mix(in srgb, var(--primary-light), white 80%) !important;
+}
+
+table.outer tbody tr:hover td:first-child {
+    border-left: 4px solid var(--primary) !important;
+}
+#xo-modname {
+    background: linear-gradient(to bottom, var(--primary), var(--border-light)) !important;
+    border-bottom: 2px solid var(--primary) !important;
+    color: var(--text-primary); !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+    padding: 14px 16px;
+}
+
+#buttontop_mod {
+    border-radius: 0 !important;
+}
