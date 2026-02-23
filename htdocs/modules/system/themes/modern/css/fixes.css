@@ -405,7 +405,7 @@ table.outer tbody tr:hover td:first-child {
 #xo-modname {
     background: linear-gradient(to bottom, var(--primary), var(--border-light)) !important;
     border-bottom: 2px solid var(--primary) !important;
-    color: var(--text-primary); !important;
+    color: var(--text-primary) !important;
     border-radius: var(--radius) var(--radius) 0 0 !important;
     padding: 14px 16px;
 }
