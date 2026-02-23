@@ -41,16 +41,16 @@ $admin_dir = $GLOBALS['xoops']->path('/modules/system/admin');
 $realAdminDir = realpath($admin_dir);
 $dirlist   = XoopsLists::getDirListAsArray($admin_dir);
 $index     = 0;
+$moduleHandler = xoops_getHandler('module');
+$configHandler = xoops_getHandler('config');
+$module = $moduleHandler->getByDirname('system');
+$configs = $configHandler->getConfigsByCat(0, $module->getVar('mid'));
 foreach ($dirlist as $file) {
     $versionFile = $admin_dir . '/' . $file . '/xoops_version.php';
     $realVersionPath = realpath($versionFile);
     if ($realVersionPath && $realAdminDir && strpos($realVersionPath, $realAdminDir . DIRECTORY_SEPARATOR) === 0) {
         include_once $realVersionPath;
         if (isset($modversion['hasAdmin'])) {
-            $moduleHandler = xoops_getHandler('module');
-            $configHandler = xoops_getHandler('config');
-            $module = $moduleHandler->getByDirname('system');
-            $configs = $configHandler->getConfigsByCat(0, $module->getVar('mid'));
             if ($configs['active_' . $file]) {
                 $category = isset($modversion['category']) ? (int)$modversion['category'] : 0;
                 if ($all_ok || in_array($category, $ok_syscats, true)) {
