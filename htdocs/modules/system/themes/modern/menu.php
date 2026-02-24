@@ -10,7 +10,7 @@
  */
 
 /*
- * Xoops Cpanel modern menu
+ * Xoops Cpanel oxygen menu
  *
  * @copyright   (c) 2000-2016 XOOPS Project (www.xoops.org)
  * @license     GNU GPL 2.0 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -49,8 +49,8 @@ foreach ($dirlist as $file) {
     $versionFile = $admin_dir . '/' . $file . '/xoops_version.php';
     $realVersionPath = realpath($versionFile);
     if ($realVersionPath && $realAdminDir && strpos($realVersionPath, $realAdminDir . DIRECTORY_SEPARATOR) === 0) {
-        include_once $realVersionPath;
-        if (isset($modversion['hasAdmin'])) {
+        include $realVersionPath; // NOSONAR — intentional: loop loads a different config file each iteration; include_once would skip files already loaded elsewhere
+        if (isset($modversion['hasAdmin']) && $modversion['hasAdmin']) {
             if ($configs['active_' . $file]) {
                 $category = isset($modversion['category']) ? (int)$modversion['category'] : 0;
                 if ($all_ok || in_array($category, $ok_syscats, true)) {
